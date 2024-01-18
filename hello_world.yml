@@ -1,6 +1,16 @@
 - name: Test ansible-pylibssh package installation 
   hosts: localhost
   tasks:
+    - name: Install six
+      pip:
+        name: six
+        state: present
+        
+    - name: Install paramiko
+      pip:
+        name: paramiko==2.8.1
+        state: present
+        
     - name: Install ansible-pylibssh
       pip:
         name: ansible-pylibssh
