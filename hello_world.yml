@@ -24,7 +24,7 @@
       ansible.builtin.debug:
         var: ansible_pylibssh_path.stdout
 
-    - name: "gateways"  
+    - name: gateways  
       hosts: vyos  
       gather_facts: no 
       
@@ -39,6 +39,6 @@
 
     - name: Facts from a specific host  
       debug:  
-      var: hostvars[ansible_net_hostname]</div>
+      var: hostvars
 
     
