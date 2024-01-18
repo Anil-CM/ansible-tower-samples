@@ -1,17 +1,6 @@
-- name: Hello World Sample
+- name: Test ansible-pylibssh package installation 
   hosts: localhost
   tasks:
-    - name: Check if binary exists in PATH
-      command: which ssh-keygen
-      ignore_errors: true
-      register: which_out 
-    - name: Hello
-      debug:
-        msg: "{{ my_var }}"
-    - name: Create SSH
-      openssh_keypair:
-        path: '/tmp/id_ssh_rsa'
-      register: ssh_key_local
     - name: Install ansible-pylibssh
       pip:
         name: ansible-pylibssh
@@ -23,22 +12,5 @@
     - name: Debug ansible-pylibssh path
       ansible.builtin.debug:
         var: ansible_pylibssh_path.stdout
-
-    - name: gateways  
-      hosts: vyos  
-      gather_facts: no 
-      
-    - name: Gather facts (vyos)  
-      vyos.vyos.vyos_facts:  
-      when: ansible_network_os == 'vyos.vyos.vyos'  
-
-    # Demonstrate variables  
-    - name: Display some facts  
-      debug:  
-      msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"  
-
-    - name: Facts from a specific host  
-      debug:  
-      var: hostvars
 
     
