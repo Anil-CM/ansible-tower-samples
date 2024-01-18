@@ -16,7 +16,8 @@
       pip:
         name: ansible-pylibssh
         state: present
-    - name: Print facts
-      debug:
-        var: ansible_facts
+    - name: Display the path of ansible-pylibssh library
+      ansible.builtin.debug:
+        var: ansible_python_package_paths | regex_search('ansible_p\\S+pylibssh$')
+
     
