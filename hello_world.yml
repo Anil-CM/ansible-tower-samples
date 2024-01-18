@@ -17,7 +17,11 @@
         name: ansible-pylibssh
         state: present
     - name: Display the path of ansible-pylibssh library
+      command: "pip show ansible-pylibssh | grep 'Location:' | awk '{print $2}'"
+      register: ansible_pylibssh_path
+
+    - name: Debug ansible-pylibssh path
       ansible.builtin.debug:
-        var: ansible_python_package_paths | regex_search('ansible_p\\S+pylibssh$')
+        var: ansible_pylibssh_path.stdout
 
     
