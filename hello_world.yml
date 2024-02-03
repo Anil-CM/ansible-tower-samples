@@ -6,15 +6,15 @@
         name: six
         state: present
         
-    - name: Install paramiko
-      pip:
-        name: paramiko==2.8.1
-        state: present
+ #   - name: Install paramiko
+ #     pip:
+ #       name: paramiko==2.8.1
+ #       state: present
         
-    - name: Install ansible-pylibssh
-      pip:
-        name: ansible-pylibssh
-        state: present
+ #   - name: Install ansible-pylibssh
+ #     pip:
+ #       name: ansible-pylibssh
+ #       state: present
     - name: Display the path of ansible-pylibssh library
       command: "pip show ansible-pylibssh | grep 'Location:' | awk '{print $2}'"
       register: ansible_pylibssh_path
