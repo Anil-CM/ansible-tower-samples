@@ -1,0 +1,8 @@
+---
+- name: Print IP Address of Host
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Print IP Address
+      debug:
+        msg: "IP Address of {{ inventory_hostname }} is {{ ansible_default_ipv4.address }}"
