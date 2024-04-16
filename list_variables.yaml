@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Print the command-line extra variable (list)
+      debug:
+        msg: "The command-line extra variable 'languages' is: {{ languages }}"
+
+    - name: Print each item in the list
+      debug:
+        msg: "Language: {{ item }}"
+      loop: "{{ languages }}"
