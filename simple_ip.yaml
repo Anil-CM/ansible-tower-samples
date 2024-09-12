@@ -1,4 +1,8 @@
 ---
+collections:
+  - name: https://github.ibm.com/amallak1/test-collection.git
+    type: git
+    version: v1.0.0
 - name: Print IP Address of Host
   hosts: all
   gather_facts: yes
